@@ -216,16 +216,28 @@ import { GameMetadata } from '../../../../core/models/game-registry.model';
         </div>
 
         @if (game().isAvailable) {
-          <a
-            [routerLink]="game().route"
-            class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-md shadow-indigo-500/20 hover:shadow-lg transition-all duration-200 active:scale-[0.98] group-hover:scale-[1.01]"
-            [attr.aria-label]="'Play ' + game().title"
-          >
-            <span>Play {{ game().title }}</span>
-            <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">
-              {{ game().actionIcon || 'arrow_forward' }}
-            </span>
-          </a>
+          <div class="flex items-center gap-2">
+            <a
+              [routerLink]="game().route"
+              class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-md shadow-indigo-500/20 hover:shadow-lg transition-all duration-200 active:scale-[0.98] group-hover:scale-[1.01]"
+              [attr.aria-label]="'Play ' + game().title"
+            >
+              <span>Play {{ game().title }}</span>
+              <span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">
+                {{ game().actionIcon || 'arrow_forward' }}
+              </span>
+            </a>
+            @if (game().id === 'sudoku') {
+              <a
+                routerLink="/sudoku/rules"
+                title="Rules &amp; Guidelines"
+                class="p-2.5 rounded-xl bg-slate-100 dark:bg-[#060e20] hover:bg-slate-200 dark:hover:bg-[#131b2e] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-[#c7c4d8] hover:text-indigo-600 dark:hover:text-white transition-all flex items-center justify-center shadow-sm"
+                aria-label="Sudoku Rules and Guidelines"
+              >
+                <span class="material-symbols-outlined text-[20px]">menu_book</span>
+              </a>
+            }
+          </div>
         } @else {
           <button
             type="button"

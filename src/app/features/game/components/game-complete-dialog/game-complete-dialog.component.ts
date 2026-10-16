@@ -45,7 +45,7 @@ import { SudokuGameService } from '../../../../core/services/sudoku-game.service
             <div class="flex justify-between items-center py-1.5 border-b border-slate-200 dark:border-slate-800">
               <span class="text-slate-500 dark:text-[#c7c4d8]">Mistakes Made</span>
               <span class="text-slate-900 dark:text-white font-bold">
-                {{ gameService.mistakes() }} / 3
+                {{ gameService.mistakes() }}
               </span>
             </div>
             <div class="flex justify-between items-center py-1.5">
