@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Enigma Puzzles</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed-variant": "#3323cc", "secondary": "#7bd0ff", "on-tertiary-fixed-variant": "#005236", "tertiary-fixed-dim": "#4edea3", "secondary-fixed": "#c4e7ff", "outline": "#918fa1", "surface-dim": "#0b1326", "primary-container": "#4f46e5", "on-primary-container": "#dad7ff", "on-secondary": "#00354a", "on-secondary-fixed-variant": "#004c69", "surface-variant": "#2d3449", "on-secondary-fixed": "#001e2c", "primary-fixed-dim": "#c3c0ff", "inverse-on-surface": "#283044", "tertiary-container": "#006e4b", "on-tertiary-fixed": "#002113", "surface-container": "#171f33", "primary": "#c3c0ff", "tertiary": "#4edea3", "error-container": "#93000a", "on-primary-fixed": "#0f0069", "secondary-container": "#00a6e0", "on-background": "#dae2fd", "on-error-container": "#ffdad6", "surface-container-highest": "#2d3449", "surface-container-lowest": "#060e20", "surface-container-low": "#131b2e", "primary-fixed": "#e2dfff", "on-error": "#690005", "secondary-fixed-dim": "#7bd0ff", "inverse-primary": "#4d44e3", "error": "#ffb4ab", "on-surface-variant": "#c7c4d8", "background": "#0b1326", "on-tertiary": "#003824", "surface": "#0b1326", "on-surface": "#dae2fd", "on-secondary-container": "#00374d", "tertiary-fixed": "#6ffbbe", "surface-container-high": "#222a3d", "outline-variant": "#464555", "on-tertiary-container": "#67f4b7", "on-primary": "#1d00a5", "inverse-surface": "#dae2fd", "surface-bright": "#31394d", "surface-tint": "#c3c0ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-mobile": "1.25rem", "space-sm": "0.5rem", "gutter": "1.5rem", "margin-tablet": "2rem", "space-lg": "1.5rem", "gutter-mobile": "1rem", "space-xs": "0.25rem", "margin": "3rem", "space-xl": "2.5rem", "space-md": "1rem" }, "fontFamily": { "display-hero": [ "Plus Jakarta Sans" ], "label-mono-sm": [ "JetBrains Mono" ], "headline-md": [ "Plus Jakarta Sans" ], "title-md": [ "Plus Jakarta Sans" ], "body-lg": [ "Plus Jakarta Sans" ], "display-hero-mobile": [ "Plus Jakarta Sans" ], "label-mono-lg": [ "JetBrains Mono" ], "headline-lg-mobile": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ], "headline-sm": [ "Plus Jakarta Sans" ], "headline-lg": [ "Plus Jakarta Sans" ], "label-mono-md": [ "JetBrains Mono" ], "body-md": [ "Plus Jakarta Sans" ] }, "fontSize": { "display-hero": [ "48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "label-mono-sm": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" } ], "headline-md": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "title-md": [ "16px", { "lineHeight": "24px", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ], "display-hero-mobile": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "label-mono-lg": [ "15px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-lg-mobile": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-sm": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "headline-sm": [ "20px", { "lineHeight": "28px", "fontWeight": "600" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "label-mono-md": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "500" } ], "body-md": [ "15px", { "lineHeight": "24px", "fontWeight": "400" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-[1200px] mx-auto px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface rounded" data-path="games" href="#"><img alt="Aether Puzzle Monogram" class="h-8 w-auto object-contain transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDPQ2inZ71xmNPp1-RsWPtVxX5nyV1CKcRk980JNGGM5XaJUG_9Vbu-V5iV3cCYZ45Cvgpjw2Quk3bnSqUwSpvjzBPGZ9Wi77v91F0MmrQIVLf1Fdxuq3yMbylIkpAkXw9_TW7MuT_tABBWqPs2WFRWD5u4vnVSR0CGKEVC52d83xMwGyAkc5GicLZfWxPe_z_hgqnwqG-gEopiRXEbVOA85wqZ9SZakS92eQEJ-g0TK0_wF4OL-hvJg"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Enigma</span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant tracking-wider uppercase mt-space-xs">Cognitive Sanctuary</span></div></a><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container rounded-lg"><a class="px-space-md py-space-xs font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all rounded-lg" data-path="games" href="#">Games</a><a class="px-space-md py-space-xs font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all rounded-lg" data-path="daily-challenge" href="#">Daily Challenge</a><a class="px-space-md py-space-xs font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all rounded-lg" data-path="leaderboard" href="#">Leaderboard</a><a class="px-space-md py-space-xs font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all rounded-lg" data-path="stats" href="#">Stats</a><a aria-current="page" class="px-space-md py-space-xs font-body-sm transition-all bg-primary-container text-on-primary-container rounded-lg" data-path="design-spec-&amp;-tokens" href="#">Design Spec &amp; Tokens</a></nav></div><div class="flex items-center gap-space-sm"><button aria-label="Toggle dark and light mode" class="h-9 px-space-sm rounded-full bg-surface-container hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center gap-space-xs text-on-surface-variant focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface" id="theme-toggle-btn" type="button"><span class="material-symbols-outlined text-[18px] text-secondary">dark_mode</span><span class="font-label-mono-sm text-label-mono-sm select-none">Dark</span></button><a aria-label="Quick Settings" class="w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-high hover:text-on-surface text-on-surface-variant flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface" data-path="user-settings" href="#"><span class="material-symbols-outlined text-[18px]">tune</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-[calc(100vh-4rem)] flex-1"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Orbs -->
+<div class="relative w-full max-w-[1240px] mx-auto px-gutter py-space-xl">
+<div class="absolute top-10 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-96 right-10 w-80 h-80 bg-secondary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Page Header & Executive Rationale -->
+<section class="flex flex-col lg:flex-row gap-space-xl items-start justify-between pb-space-xl">
+<div class="max-w-2xl flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-mono-sm text-label-mono-sm text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span>SYSTEM SPECIFICATION • ARCHITECTURE V2.4.0</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-on-surface tracking-tight">
+          Cognitive Sanctuary <span class="text-primary font-light">Design Spec</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+          The Enigma design system is an austere, hyper-refined spatial environment built specifically for deep cognitive focus and unhurried spatial reasoning. Every micro-state, visual cadence, and chromatic scale is engineered to eliminate extraneous cognitive friction and preserve flow state.
+        </p>
+</div>
+<!-- Quick Index & Architectural Stats -->
+<div class="w-full lg:w-80 bg-surface-container-low p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase tracking-wider">System Principles</span>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container p-space-sm rounded-lg">
+<span class="font-label-mono-sm text-label-mono-sm text-primary">01 / LUMINANCE</span>
+<p class="font-body-sm text-body-sm text-on-surface font-semibold mt-0.5">WCAG AAA Pure</p>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">02 / CADENCE</span>
+<p class="font-body-sm text-body-sm text-on-surface font-semibold mt-0.5">4px/8px Atomic</p>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg">
+<span class="font-label-mono-sm text-label-mono-sm text-tertiary">03 / INERTIA</span>
+<p class="font-body-sm text-body-sm text-on-surface font-semibold mt-0.5">Tactile Sub-200ms</p>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">04 / STRUCTURE</span>
+<p class="font-body-sm text-body-sm text-on-surface font-semibold mt-0.5">Zero-Border Form</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-label-mono-sm text-label-mono-sm text-on-surface-variant">
+<span>Target Framework</span>
+<span class="text-on-surface font-semibold">Angular 18+ Signals</span>
+</div>
+</div>
+</section>
+<!-- SECTION 1: Dual-Theme Color Palette (Side-by-side comparison) -->
+<section class="mt-space-xl flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row items-baseline justify-between gap-space-xs">
+<div>
+<span class="font-label-mono-sm text-label-mono-sm text-primary tracking-widest uppercase">Token Anatomy</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Dual-Theme Chromatic Matrix</h2>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Contrast Ratios verified via APCA &amp; WCAG 2.2</span>
+</div>
+<!-- Color Token Comparison Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+<!-- Light Mode Token Column -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary">light_mode</span>
+<h3 class="font-title-md text-title-md text-on-surface">Light Sanctuary Spec</h3>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm px-space-xs py-0.5 bg-surface-container text-on-surface-variant rounded">6000K Sunlight Base</span>
+</div>
+<!-- Semantic Backgrounds -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">BACKGROUND SURFACES</span>
+<div class="grid grid-cols-3 gap-space-xs">
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between h-20">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Floor Canvas</span>
+<span class="font-label-mono-md text-label-mono-md text-on-surface font-semibold">#F8FAFC</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between h-20">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Panel Surface</span>
+<span class="font-label-mono-md text-label-mono-md text-on-surface font-semibold">#FFFFFF</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between h-20">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Container Low</span>
+<span class="font-label-mono-md text-label-mono-md text-on-surface font-semibold">#F1F5F9</span>
+</div>
+</div>
+</div>
+<!-- Accents -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">PRIMARY COGNITIVE ACCENTS</span>
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="bg-surface-container p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded bg-primary-container"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Primary Indigo</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">#4F46E5</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded bg-on-primary-fixed-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Primary Hover</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">#4338CA</span>
+</div>
+</div>
+</div>
+<!-- Status Tokens -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">SYSTEM FEEDBACK SIGNALS</span>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs font-label-mono-sm text-label-mono-sm">
+<div class="bg-surface-container p-space-xs rounded flex flex-col gap-1">
+<span class="text-tertiary flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary"></span>Solved</span>
+<span class="text-on-surface-variant font-mono">#10B981</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded flex flex-col gap-1">
+<span class="text-secondary flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span>Attn / Note</span>
+<span class="text-on-surface-variant font-mono">#F59E0B</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded flex flex-col gap-1">
+<span class="text-error flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-error"></span>Conflict</span>
+<span class="text-on-surface-variant font-mono">#EF4444</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded flex flex-col gap-1">
+<span class="text-secondary-fixed-dim flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></span>Sky / Guide</span>
+<span class="text-on-surface-variant font-mono">#0284C7</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Dark Mode Token Column -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary">dark_mode</span>
+<h3 class="font-title-md text-title-md text-on-surface">Dark Sanctuary Spec</h3>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm px-space-xs py-0.5 bg-surface-container text-primary rounded">OLED Deep Midnight</span>
+</div>
+<!-- Semantic Backgrounds -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">BACKGROUND SURFACES</span>
+<div class="grid grid-cols-3 gap-space-xs">
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between h-20">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Base Floor</span>
+<span class="font-label-mono-md text-label-mono-md text-on-surface font-semibold">#0B1326</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between h-20">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Surface Panel</span>
+<span class="font-label-mono-md text-label-mono-md text-on-surface font-semibold">#131B2E</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col justify-between h-20">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Container Mid</span>
+<span class="font-label-mono-md text-label-mono-md text-on-surface font-semibold">#1E293B</span>
+</div>
+</div>
+</div>
+<!-- Accents -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">PRIMARY COGNITIVE ACCENTS</span>
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="bg-surface-container p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded bg-primary"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Primary Soft</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">#6366F1</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-4 h-4 rounded bg-primary-fixed-dim"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Luminous Node</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">#818CF8</span>
+</div>
+</div>
+</div>
+<!-- Status Tokens -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">SYSTEM FEEDBACK SIGNALS</span>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs font-label-mono-sm text-label-mono-sm">
+<div class="bg-surface-container p-space-xs rounded flex flex-col gap-1">
+<span class="text-tertiary-fixed-dim flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary"></span>Solved</span>
+<span class="text-on-surface-variant font-mono">15.2:1 AAA</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded flex flex-col gap-1">
+<span class="text-secondary flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span>Attn / Note</span>
+<span class="text-on-surface-variant font-mono">11.8:1 AAA</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded flex flex-col gap-1">
+<span class="text-error flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-error"></span>Conflict</span>
+<span class="text-on-surface-variant font-mono">8.4:1 AAA</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded flex flex-col gap-1">
+<span class="text-secondary-fixed flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span>Sky / Guide</span>
+<span class="text-on-surface-variant font-mono">10.1:1 AAA</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Theme Switcher Architecture & State Showcase -->
+<section class="mt-space-xl flex flex-col gap-space-lg">
+<div>
+<span class="font-label-mono-sm text-label-mono-sm text-primary tracking-widest uppercase">State &amp; Persistence Engine</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Theme Switcher Micro-Architecture</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Interactive Theme Switcher Sandbox -->
+<div class="lg:col-span-5 bg-surface-container-low p-space-lg rounded-xl shadow-md flex flex-col gap-space-md justify-between">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">INTERACTIVE PREVIEW</span>
+<h3 class="font-title-md text-title-md text-on-surface">Segmented Theme Controller</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Test the atomic toggle states below. Emits discrete signals with zero repaint jitter via root-level class shifts.
+            </p>
+</div>
+<!-- Switcher Visuals (Interactive mockup) -->
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col gap-space-sm items-center">
+<div class="p-1 bg-surface-container-highest rounded-full flex items-center gap-1 shadow-inner" id="demo-theme-switcher">
+<button class="px-space-md py-1.5 rounded-full flex items-center gap-space-xs font-label-mono-sm text-label-mono-sm transition-all duration-200 text-on-surface-variant hover:text-on-surface" id="btn-mode-light" onclick="simulateThemeChange('light')">
+<span class="material-symbols-outlined text-[16px]">light_mode</span>
+<span>Light</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full flex items-center gap-space-xs font-label-mono-sm text-label-mono-sm bg-primary-container text-on-primary-container shadow-md transition-all duration-200" id="btn-mode-dark" onclick="simulateThemeChange('dark')">
+<span class="material-symbols-outlined text-[16px]">dark_mode</span>
+<span>Dark</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full flex items-center gap-space-xs font-label-mono-sm text-label-mono-sm transition-all duration-200 text-on-surface-variant hover:text-on-surface" id="btn-mode-system" onclick="simulateThemeChange('system')">
+<span class="material-symbols-outlined text-[16px]">desktop_windows</span>
+<span>System</span>
+</button>
+</div>
+<div class="font-label-mono-sm text-label-mono-sm text-tertiary" id="demo-state-output">
+              Active State: Dark Mode (Cached: 'dark' • Synced with OS)
+            </div>
+</div>
+<!-- State Matrices -->
+<div class="grid grid-cols-4 gap-space-xs text-center font-label-mono-sm text-label-mono-sm">
+<div class="p-space-xs bg-surface-container rounded">
+<span class="text-on-surface-variant block mb-1">Default</span>
+<span class="text-on-surface text-[12px]">Soft Tint</span>
+</div>
+<div class="p-space-xs bg-surface-container rounded">
+<span class="text-on-surface-variant block mb-1">Hover</span>
+<span class="text-on-surface text-[12px]">+10% Surface</span>
+</div>
+<div class="p-space-xs bg-surface-container rounded">
+<span class="text-on-surface-variant block mb-1">Active</span>
+<span class="text-primary text-[12px]">Scale 0.98</span>
+</div>
+<div class="p-space-xs bg-surface-container rounded">
+<span class="text-on-surface-variant block mb-1">Focus</span>
+<span class="text-secondary text-[12px]">2px Outline</span>
+</div>
+</div>
+</div>
+<!-- Angular Service Specification Code Panel -->
+<div class="lg:col-span-7 bg-surface-container-low p-space-lg rounded-xl shadow-md flex flex-col gap-space-sm font-label-mono-sm text-label-mono-sm overflow-hidden">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container-highest">
+<span class="text-secondary font-semibold">theme.service.ts</span>
+<span class="text-on-surface-variant">Signals • LocalStorage • OS Watcher</span>
+</div>
+<pre class="text-on-surface-variant overflow-x-auto leading-relaxed p-space-xs"><code><span class="text-primary font-bold">@Injectable</span>({ providedIn: <span class="text-tertiary">'root'</span> })
+<span class="text-secondary font-semibold">export class</span> ThemeService {
+  <span class="text-on-surface-variant">// Reactive signal for global consumer consumption</span>
+  <span class="text-secondary">readonly</span> currentTheme = signal&lt;<span class="text-tertiary">'light'</span> | <span class="text-tertiary">'dark'</span> | <span class="text-tertiary">'system'</span>&gt;(<span class="text-tertiary">'dark'</span>);
+
+  <span class="text-secondary">private</span> mediaQuery = window.matchMedia(<span class="text-tertiary">'(prefers-color-scheme: dark)'</span>);
+
+  <span class="text-secondary">constructor</span>() {
+    <span class="text-secondary">const</span> saved = localStorage.getItem(<span class="text-tertiary">'enigma-theme'</span>) || <span class="text-tertiary">'system'</span>;
+    <span class="text-secondary">this</span>.applyTheme(saved <span class="text-secondary">as any</span>);
+    
+    <span class="text-on-surface-variant">// Native OS theme listener without refresh</span>
+    <span class="text-secondary">this</span>.mediaQuery.addEventListener(<span class="text-tertiary">'change'</span>, (e) =&gt; {
+      <span class="text-secondary">if</span> (<span class="text-secondary">this</span>.currentTheme() === <span class="text-tertiary">'system'</span>) <span class="text-secondary">this</span>.syncRoot(e.matches);
+    });
+  }
+
+  setTheme(theme: <span class="text-tertiary">'light'</span> | <span class="text-tertiary">'dark'</span> | <span class="text-tertiary">'system'</span>) {
+    localStorage.setItem(<span class="text-tertiary">'enigma-theme'</span>, theme);
+    <span class="text-secondary">this</span>.currentTheme.set(theme);
+    <span class="text-secondary">this</span>.applyTheme(theme);
+  }
+}</code></pre>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Component Inventory & Interactive States -->
+<section class="mt-space-xl flex flex-col gap-space-lg">
+<div>
+<span class="font-label-mono-sm text-label-mono-sm text-primary tracking-widest uppercase">Living Design System</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Core Component Showcase</h2>
+</div>
+<!-- Bento Grid for Components -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-lg items-start">
+<!-- BUTTONS MATRIX (Cols: 6) -->
+<div class="lg:col-span-6 bg-surface-container-low p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">Button Hierarchy &amp; States</h3>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">44px Touch Ready</span>
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<!-- Primary Variations -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">PRIMARY (INDIGO)</span>
+<button class="w-full h-11 px-space-md rounded-lg bg-primary-container hover:bg-on-primary-fixed-variant text-on-primary-container font-title-md text-title-md flex items-center justify-center gap-space-xs transition-all active:scale-[0.98] shadow-md">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+<span>Continue</span>
+</button>
+<button class="w-full h-11 px-space-md rounded-lg bg-surface-container text-outline font-title-md text-title-md flex items-center justify-center gap-space-xs cursor-not-allowed" disabled="">
+<span>Disabled State</span>
+</button>
+</div>
+<!-- Secondary / Ghost Variations -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">SECONDARY &amp; GHOST</span>
+<button class="w-full h-11 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-title-md text-title-md flex items-center justify-center gap-space-xs transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">cached</span>
+<span>New Board</span>
+</button>
+<button class="w-full h-11 px-space-md rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-title-md text-title-md flex items-center justify-center gap-space-xs transition-all">
+<span class="material-symbols-outlined text-[18px]">flag</span>
+<span>Surrender</span>
+</button>
+</div>
+</div>
+<!-- Utility Pill / Icon Toolbar Buttons -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">GAME CONTROLLER UTILITY PILLS</span>
+<div class="flex items-center gap-space-sm">
+<button class="w-11 h-11 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-transform active:scale-90 shadow-sm" title="Undo move">
+<span class="material-symbols-outlined text-[20px]">undo</span>
+</button>
+<button class="w-11 h-11 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-transform active:scale-90 shadow-sm" title="Erase cell">
+<span class="material-symbols-outlined text-[20px]">ink_eraser</span>
+</button>
+<button class="h-11 px-space-md rounded-full bg-surface-container hover:bg-surface-container-high text-secondary flex items-center gap-space-xs transition-all" title="Toggle Pencil Notes">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+<span class="font-label-mono-sm text-label-mono-sm font-semibold">Notes: ON</span>
+</button>
+<button class="h-11 px-space-md rounded-full bg-surface-container hover:bg-surface-container-high text-tertiary flex items-center gap-space-xs transition-all" title="Hint Request">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+<span class="font-label-mono-sm text-label-mono-sm font-semibold">Hint (3)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- GAME CARD ANATOMY (Cols: 6) -->
+<div class="lg:col-span-6 bg-surface-container-low p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">Game Card Anatomy</h3>
+<span class="font-label-mono-sm text-label-mono-sm text-tertiary">Interactive Matrix</span>
+</div>
+<!-- Catalog Game Card Mockup with Hover Elevation -->
+<div class="group bg-surface-container hover:bg-surface-container-high p-space-lg rounded-xl transition-all duration-300 shadow-md flex flex-col justify-between gap-space-md relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-tertiary font-label-mono-sm text-label-mono-sm">
+                    Master Class
+                  </span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-mono-sm text-label-mono-sm">
+                    Daily #419
+                  </span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">
+                  Minimalist Sudoku: Hyper-Symmetry
+                </h4>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[22px]">grid_4x4</span>
+</div>
+</div>
+<!-- Card Visual Graphic Placeholder -->
+<div class="relative h-28 w-full bg-surface-container-lowest rounded-lg overflow-hidden flex items-center justify-center p-space-sm">
+<div class="grid grid-cols-6 gap-1 w-44 opacity-80 group-hover:opacity-100 transition-opacity">
+<div class="h-6 rounded bg-surface-container flex items-center justify-center font-label-mono-sm text-label-mono-sm text-on-surface-variant">5</div>
+<div class="h-6 rounded bg-primary-container/40 flex items-center justify-center font-label-mono-sm text-label-mono-sm text-primary font-bold">3</div>
+<div class="h-6 rounded bg-surface-container"></div>
+<div class="h-6 rounded bg-surface-container"></div>
+<div class="h-6 rounded bg-tertiary-container/40 flex items-center justify-center font-label-mono-sm text-label-mono-sm text-tertiary">7</div>
+<div class="h-6 rounded bg-surface-container"></div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+</div>
+<!-- Card Footer Meta -->
+<div class="flex items-center justify-between font-label-mono-sm text-label-mono-sm text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 04:32 Avg</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">military_tech</span> 98.4% Win</span>
+</div>
+<span class="text-primary font-semibold flex items-center gap-0.5">Solve <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+</div>
+</div>
+</div>
+<!-- SUDOKU CELL 7-STATE MATRIX (Cols: 12 Full Width) -->
+<div class="lg:col-span-12 bg-surface-container-low p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<span class="font-label-mono-sm text-label-mono-sm text-primary uppercase tracking-wider">Engine Visual Vocabulary</span>
+<h3 class="font-title-md text-title-md text-on-surface">The 7 Interactive Sudoku Cell States</h3>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Strict cognitive clarity • zero visual ambiguity</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-space-sm">
+<!-- State 1: Initial Clue -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col items-center gap-space-xs text-center">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest flex items-center justify-center font-headline-md text-headline-md text-on-surface font-bold shadow-inner">
+                4
+              </div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-semibold">1. Clue (Given)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight">Fixed immutable font-bold, level-3 fill</span>
+</div>
+<!-- State 2: User Input -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col items-center gap-space-xs text-center">
+<div class="w-14 h-14 rounded-lg bg-surface-container-high flex items-center justify-center font-headline-md text-headline-md text-primary font-medium">
+                8
+              </div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-semibold">2. User Entry</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight">Muted indigo tint, player placed</span>
+</div>
+<!-- State 3: Selected Cell -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col items-center gap-space-xs text-center">
+<div class="w-14 h-14 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-display-hero text-[28px] font-bold shadow-lg scale-105 transition-transform">
+                8
+              </div>
+<span class="font-label-mono-sm text-label-mono-sm text-primary font-semibold">3. Focused Active</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight">Primary glow, active input pointer</span>
+</div>
+<!-- State 4: Row/Col/Box Guide -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col items-center gap-space-xs text-center">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest/60 flex items-center justify-center font-headline-md text-headline-md text-on-surface-variant">
+                1
+              </div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-semibold">4. Peer Axis</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight">Shared row/col quadrant highlight</span>
+</div>
+<!-- State 5: Matching Number -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col items-center gap-space-xs text-center">
+<div class="w-14 h-14 rounded-lg bg-secondary/20 flex items-center justify-center font-headline-md text-headline-md text-secondary font-semibold">
+                8
+              </div>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary font-semibold">5. Match Highlight</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight">All board instances of active number</span>
+</div>
+<!-- State 6: Pencil Marks -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col items-center gap-space-xs text-center">
+<div class="w-14 h-14 rounded-lg bg-surface-container-high grid grid-cols-3 p-1 font-label-mono-sm text-[9px] leading-none text-on-surface-variant place-items-center">
+<span>1</span><span></span><span>3</span>
+<span></span><span>5</span><span></span>
+<span>7</span><span></span><span>9</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-semibold">6. Pencil Notes</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight">Sub-matrix 3x3 candidate marks</span>
+</div>
+<!-- State 7: Conflict / Error -->
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col items-center gap-space-xs text-center">
+<div class="w-14 h-14 rounded-lg bg-error-container text-on-error-container flex items-center justify-center font-headline-md text-headline-md font-bold animate-pulse">
+                8
+              </div>
+<span class="font-label-mono-sm text-label-mono-sm text-error font-semibold">7. Conflict Error</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight">Rule clash (row/box duplicity)</span>
+</div>
+</div>
+</div>
+<!-- NUMBER PAD WITH COMPLETION COUNTERS (Cols: 6) -->
+<div class="lg:col-span-6 bg-surface-container-low p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">Tactile Numeric Keypad</h3>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Live Remaining Counters</span>
+</div>
+<div class="grid grid-cols-3 gap-space-sm">
+<!-- Keypad Buttons 1 to 9 -->
+<button class="h-16 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex flex-col items-center justify-center relative active:scale-95 shadow-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">1</span>
+<span class="font-label-mono-sm text-[10px] text-tertiary">3 left</span>
+</button>
+<button class="h-16 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex flex-col items-center justify-center relative active:scale-95 shadow-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">2</span>
+<span class="font-label-mono-sm text-[10px] text-tertiary">1 left</span>
+</button>
+<button class="h-16 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex flex-col items-center justify-center relative active:scale-95 shadow-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">3</span>
+<span class="font-label-mono-sm text-[10px] text-tertiary">4 left</span>
+</button>
+<button class="h-16 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex flex-col items-center justify-center relative active:scale-95 shadow-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">4</span>
+<span class="font-label-mono-sm text-[10px] text-tertiary">2 left</span>
+</button>
+<button class="h-16 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex flex-col items-center justify-center relative active:scale-95 shadow-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">5</span>
+<span class="font-label-mono-sm text-[10px] text-tertiary">6 left</span>
+</button>
+<!-- Depleted/Completed Key (Zero Left) -->
+<button class="h-16 rounded-xl bg-surface-container/40 opacity-40 cursor-not-allowed flex flex-col items-center justify-center relative" disabled="">
+<span class="font-headline-md text-headline-md text-outline font-semibold">6</span>
+<span class="font-label-mono-sm text-[10px] text-outline">Solved</span>
+</button>
+<button class="h-16 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex flex-col items-center justify-center relative active:scale-95 shadow-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">7</span>
+<span class="font-label-mono-sm text-[10px] text-tertiary">2 left</span>
+</button>
+<button class="h-16 rounded-xl bg-primary-container text-on-primary-container transition-all flex flex-col items-center justify-center relative active:scale-95 shadow-md">
+<span class="font-headline-md text-headline-md font-semibold">8</span>
+<span class="font-label-mono-sm text-[10px] text-on-primary-container font-mono">Current</span>
+</button>
+<button class="h-16 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all flex flex-col items-center justify-center relative active:scale-95 shadow-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">9</span>
+<span class="font-label-mono-sm text-[10px] text-tertiary">5 left</span>
+</button>
+</div>
+</div>
+<!-- MODALS & OVERLAYS INVENTORY (Cols: 6) -->
+<div class="lg:col-span-6 bg-surface-container-low p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">Modal &amp; Overlay Architecture</h3>
+<span class="font-label-mono-sm text-label-mono-sm text-tertiary">Zen Focus Mode</span>
+</div>
+<!-- Victory Card Modal Simulation -->
+<div class="bg-surface-container p-space-lg rounded-xl flex flex-col gap-space-md relative overflow-hidden shadow-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[20px]">emoji_events</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">Session Resolved: Perfect Clarity</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Cognitive Efficiency Score: 98.2</span>
+</div>
+</div>
+<!-- Tabular Monospace Performance Breakdown -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-space-xs font-label-mono-sm text-label-mono-sm">
+<div class="flex justify-between text-on-surface-variant">
+<span>TOTAL ELAPSED TIME</span>
+<span class="text-on-surface font-mono font-semibold">03:42.18</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>MISTAKE RESILIENCE</span>
+<span class="text-tertiary font-mono font-semibold">0 Errors (Flawless)</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>HINTS CONSUMED</span>
+<span class="text-on-surface font-mono font-semibold">0 / 3</span>
+</div>
+<div class="flex justify-between text-on-surface-variant pt-space-xs border-t border-surface-container-highest">
+<span class="text-secondary font-bold">RATING ADJUSTMENT</span>
+<span class="text-secondary font-mono font-bold">+38 ELO [2,140]</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex-1 h-10 rounded-lg bg-primary-container text-on-primary-container font-title-md text-body-sm flex items-center justify-center gap-space-xs">
+<span>Catalog Next</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+<button class="px-space-md h-10 rounded-lg bg-surface-container-high text-on-surface font-title-md text-body-sm">
+                Share Proof
+              </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Typography & Spacing Cadence -->
+<section class="mt-space-xl flex flex-col gap-space-lg">
+<div>
+<span class="font-label-mono-sm text-label-mono-sm text-primary tracking-widest uppercase">Geometric Rhythm</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Typographic &amp; Spatial Cadence</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Typographic Scale (Cols: 7) -->
+<div class="lg:col-span-7 bg-surface-container-low p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">PLUS JAKARTA SANS • JETBRAINS MONO</span>
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-col gap-1 pb-space-sm border-b border-surface-container">
+<div class="flex items-baseline justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-primary">display-hero • 48px / 56px line</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Weight: 700 • -0.02em</span>
+</div>
+<p class="font-display-hero text-display-hero text-on-surface">48px Pure Geometry</p>
+</div>
+<div class="flex flex-col gap-1 pb-space-sm border-b border-surface-container">
+<div class="flex items-baseline justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">headline-lg • 32px / 40px line</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Weight: 600 • -0.015em</span>
+</div>
+<p class="font-headline-lg text-headline-lg text-on-surface">32px Section Hierarchy</p>
+</div>
+<div class="flex flex-col gap-1 pb-space-sm border-b border-surface-container">
+<div class="flex items-baseline justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-tertiary">body-lg • 18px / 28px line</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Weight: 400 • Editorial</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant">18px Editorial body designed for long-form cognition instructions.</p>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-baseline justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-primary-fixed-dim">label-mono-sm • 11px / 16px line</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">JetBrains Mono • Tracking 0.05em</span>
+</div>
+<p class="font-label-mono-sm text-label-mono-sm text-on-surface font-mono">00:14:52.88 • MEMORY: 64KB • MATRIX: 9x9 LOCKED</p>
+</div>
+</div>
+</div>
+<!-- 4px/8px Geometric Spacing Scale (Cols: 5) -->
+<div class="lg:col-span-5 bg-surface-container-low p-space-lg rounded-xl shadow-md flex flex-col gap-space-md justify-between">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">4PX / 8PX GEOMETRIC METRICS</span>
+<h3 class="font-title-md text-title-md text-on-surface">Proportional Spacing Scale</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Predictable dimensional harmony across canvas margins, grid gutters, and interior card padding.
+            </p>
+</div>
+<div class="flex flex-col gap-space-xs font-label-mono-sm text-label-mono-sm">
+<div class="flex items-center gap-space-sm bg-surface-container p-space-xs rounded">
+<span class="w-16 text-on-surface font-mono">space-xs</span>
+<div class="h-3 bg-primary rounded" style="width: 4px;"></div>
+<span class="text-on-surface-variant">4px • 0.25rem</span>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container p-space-xs rounded">
+<span class="w-16 text-on-surface font-mono">space-sm</span>
+<div class="h-3 bg-primary rounded" style="width: 8px;"></div>
+<span class="text-on-surface-variant">8px • 0.5rem</span>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container p-space-xs rounded">
+<span class="w-16 text-on-surface font-mono">space-md</span>
+<div class="h-3 bg-primary rounded" style="width: 16px;"></div>
+<span class="text-on-surface-variant">16px • 1.0rem</span>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container p-space-xs rounded">
+<span class="w-16 text-on-surface font-mono">gutter</span>
+<div class="h-3 bg-secondary rounded" style="width: 24px;"></div>
+<span class="text-on-surface-variant">24px • 1.5rem</span>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container p-space-xs rounded">
+<span class="w-16 text-on-surface font-mono">space-xl</span>
+<div class="h-3 bg-tertiary rounded" style="width: 40px;"></div>
+<span class="text-on-surface-variant">40px • 2.5rem</span>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container p-space-xs rounded">
+<span class="w-16 text-on-surface font-mono">margin</span>
+<div class="h-3 bg-on-surface rounded" style="width: 48px;"></div>
+<span class="text-on-surface-variant">48px • 3.0rem</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: Angular Architecture & Accessibility Blueprint -->
+<section class="mt-space-xl flex flex-col gap-space-lg mb-space-xl">
+<div>
+<span class="font-label-mono-sm text-label-mono-sm text-primary tracking-widest uppercase">Implementation Blueprint</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Angular Hierarchy &amp; WCAG ARIA Protocol</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+<!-- Component Tree Diagram -->
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">Component Topology Tree</h3>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">Standalone • OnPush</span>
+</div>
+<div class="flex flex-col gap-space-xs font-label-mono-sm text-label-mono-sm">
+<div class="p-space-sm bg-surface-container rounded-lg flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">account_tree</span>
+<span class="font-bold">AppComponent</span>
+<span class="text-on-surface-variant">(Global Theme, SoundEngine, KeyRouter)</span>
+</div>
+<div class="ml-6 pl-4 border-l-2 border-surface-container-highest flex flex-col gap-space-xs">
+<div class="p-space-sm bg-surface-container rounded-lg flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[18px]">dock</span>
+<span>AppHeader &amp; AppFooter</span>
+<span class="text-on-surface-variant">(Status Pill, Timer, Quick Settings)</span>
+</div>
+<div class="p-space-sm bg-surface-container rounded-lg flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">route</span>
+<span class="font-bold">router-outlet</span>
+</div>
+<div class="ml-6 pl-4 border-l-2 border-surface-container-highest flex flex-col gap-space-xs">
+<div class="p-space-xs bg-surface-container rounded flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[16px]">apps</span>
+<span>SudokuBoardComponent</span>
+<span class="text-on-surface-variant">[Signal Matrix State]</span>
+</div>
+<div class="ml-6 pl-4 border-l-2 border-surface-container-highest flex flex-col gap-space-xs">
+<div class="p-space-xs bg-surface-container-high rounded text-on-surface-variant">
+                    SudokuCellComponent (x81 instances, pure OnPush memoization)
+                  </div>
+<div class="p-space-xs bg-surface-container-high rounded text-on-surface-variant">
+                    KeypadControllerComponent (1-9, Note toggler, Erase)
+                  </div>
+</div>
+<div class="p-space-xs bg-surface-container rounded flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[16px]">view_carousel</span>
+<span>GameCatalogComponent</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Accessible ARIA Protocol Matrix -->
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-md flex flex-col gap-space-md justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">Grid ARIA Accessibility Protocol</h3>
+<span class="font-label-mono-sm text-label-mono-sm text-tertiary">Full Keyboard Nav</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Ensures complete screen-reader traversability with arrow key roving tabindex and dynamic state articulation.
+            </p>
+</div>
+<div class="flex flex-col gap-space-xs font-label-mono-sm text-label-mono-sm">
+<div class="p-space-sm bg-surface-container rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between text-on-surface">
+<span class="text-primary font-bold">role="grid"</span>
+<span>Container Level</span>
+</div>
+<span class="text-on-surface-variant text-[12px]">aria-label="9 by 9 Sudoku Grid" • aria-multiselectable="false"</span>
+</div>
+<div class="p-space-sm bg-surface-container rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between text-on-surface">
+<span class="text-secondary font-bold">role="gridcell"</span>
+<span>Cell Level (x81)</span>
+</div>
+<span class="text-on-surface-variant text-[12px]">tabindex="0" on selected, "-1" on inactive • aria-selected="true"</span>
+</div>
+<div class="p-space-sm bg-surface-container rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between text-on-surface">
+<span class="text-error font-bold">aria-invalid="true"</span>
+<span>Error Feedback</span>
+</div>
+<span class="text-on-surface-variant text-[12px]">Dispatches screen reader announcement upon conflicting numeric placement</span>
+</div>
+<div class="p-space-sm bg-surface-container rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between text-on-surface">
+<span class="text-tertiary font-bold">aria-readonly="true"</span>
+<span>Clue Cells</span>
+</div>
+<span class="text-on-surface-variant text-[12px]">Informs user that board original clues cannot be mutated or deleted</span>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between text-on-surface-variant font-label-mono-sm text-label-mono-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span> Compliant WCAG 2.2 Level AAA</span>
+<span>Focus Indicator: 2px offset primary</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Interactive JavaScript for Live Component Sandbox Demonstration -->
+<script>
+    function simulateThemeChange(mode) {
+      const btnLight = document.getElementById('btn-mode-light');
+      const btnDark = document.getElementById('btn-mode-dark');
+      const btnSystem = document.getElementById('btn-mode-system');
+      const output = document.getElementById('demo-state-output');
+
+      [btnLight, btnDark, btnSystem].forEach(b => {
+        b.className = 'px-space-md py-1.5 rounded-full flex items-center gap-space-xs font-label-mono-sm text-label-mono-sm transition-all duration-200 text-on-surface-variant hover:text-on-surface';
+      });
+
+      const activeClasses = 'px-space-md py-1.5 rounded-full flex items-center gap-space-xs font-label-mono-sm text-label-mono-sm bg-primary-container text-on-primary-container shadow-md transition-all duration-200';
+
+      if (mode === 'light') {
+        btnLight.className = activeClasses;
+        output.textContent = "Active State: Light Sanctuary (Simulated Off-White #F8FAFC canvas)";
+        output.className = "font-label-mono-sm text-label-mono-sm text-secondary";
+      } else if (mode === 'dark') {
+        btnDark.className = activeClasses;
+        output.textContent = "Active State: Dark Mode (Cached: 'dark' • Synced with OS)";
+        output.className = "font-label-mono-sm text-label-mono-sm text-tertiary";
+      } else {
+        btnSystem.className = activeClasses;
+        output.textContent = "Active State: Auto-Sync System Listener (prefers-color-scheme: dark)";
+        output.className = "font-label-mono-sm text-label-mono-sm text-primary";
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest/80 backdrop-blur-md shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"><div class="max-w-[1200px] mx-auto px-gutter py-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant"><div class="flex items-center gap-space-md"><span class="font-body-sm text-body-sm">© 2025 Enigma Puzzles. Cognitive Sanctuary.</span><div class="hidden md:flex items-center gap-space-xs bg-surface-container px-space-sm py-space-xs rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-mono-sm text-label-mono-sm text-on-surface">Zen Grid Synced</span></div></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs font-label-mono-sm text-label-mono-sm"><span class="px-space-xs py-0.5 bg-surface-container-high rounded text-on-surface font-semibold">?</span><span>Shortcuts</span></div><div class="flex items-center gap-space-xs font-label-mono-sm text-label-mono-sm"><span class="px-space-xs py-0.5 bg-surface-container-high rounded text-on-surface font-semibold">Esc</span><span>Pause</span></div><div class="flex items-center gap-space-xs font-label-mono-sm text-label-mono-sm text-tertiary"><span class="material-symbols-outlined text-[14px]">verified</span><span>v2.4.0</span></div></div></div></footer></body></html>

@@ -73,7 +73,7 @@ describe('SudokuPageComponent', () => {
     const buttons = fixture.nativeElement.querySelectorAll('button') as NodeListOf<HTMLButtonElement>;
     let restartBtn: HTMLButtonElement | null = null;
     buttons.forEach((b: HTMLButtonElement) => {
-      if (b.textContent?.trim() === 'Restart') restartBtn = b;
+      if (b.textContent?.includes('Restart')) restartBtn = b;
     });
 
     expect(restartBtn).toBeTruthy();
