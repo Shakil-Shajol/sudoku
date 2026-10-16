@@ -114,28 +114,81 @@ npx angular-cli-ghpages --dir=dist/sudoku/browser
 
 ---
 
-## 🏛️ Architecture
+## 🏛️ Architecture & Routing
+
+The platform is designed as an extensible multi-game puzzle hub:
+
+- **`/`**: Home / Landing page featuring available and upcoming games as responsive cards.
+- **`/sudoku`**: Full-featured Sudoku puzzle game with state persistence and accessible controls.
+- **`/**`**: Fallback redirect to Home (`/`).
 
 ```text
 src/app/
 ├── core/
 │   ├── models/
-│   │   └── sudoku.model.ts          # Core interfaces & types
+│   │   ├── game-registry.model.ts   # Metadata interface for game hub items
+│   │   └── sudoku.model.ts          # Core Sudoku interfaces & types
 │   └── services/
+│       ├── game-registry.service.ts # Extensible registry of available games
 │       ├── sudoku-engine.ts         # Pure TypeScript solver, generator, & validator
 │       ├── sudoku-engine.spec.ts    # Engine test suite
 │       ├── sudoku-game.service.ts   # Angular signal-based reactive game state
 │       ├── sudoku-game.service.spec.ts
 │       └── sudoku-storage.service.ts # LocalStorage persistence
-└── features/
-    └── game/
-        ├── components/
-        │   ├── sudoku-board/        # 9x9 Grid & keyboard listeners
-        │   ├── sudoku-cell/         # OnPush cell renderer & notes grid
-        │   ├── number-pad/          # 1-9 buttons with remaining counts
-        │   ├── game-toolbar/        # Undo, Erase, Notes, Hint, Check, Solve
-        │   ├── game-stats/          # Difficulty selector, Mistakes, Timer
-        │   └── game-complete-dialog/ # Victory dialog & stats
-        └── pages/
-            └── sudoku-page/         # Responsive game view container
+├── features/
+│   ├── home/                        # Multi-game Landing Page
+│   │   ├── components/
+│   │   │   └── game-card/           # Reusable game card with responsive actions
+│   │   └── pages/
+│   │       ├── home-page/           # Landing page listing available games
+│   │       └── home-page.component.spec.ts
+│   └── game/                        # Sudoku Feature
+│       ├── components/
+│       │   ├── sudoku-board/        # 9x9 Grid & keyboard listeners
+│       │   ├── sudoku-cell/         # OnPush cell renderer & notes grid
+│       │   ├── number-pad/          # 1-9 buttons with remaining counts
+│       │   ├── game-toolbar/        # Undo, Erase, Notes, Hint, Check, Solve
+│       │   ├── game-stats/          # Difficulty selector, Mistakes, Timer
+│       │   └── game-complete-dialog/ # Victory dialog & stats
+│       └── pages/
+│           └── sudoku-page/         # Responsive game view container & header with back navigation
+├── app.routes.ts                    # Root routing configuration
+└── app.ts                           # Root application shell (<router-outlet />)
 ```
+
+---
+
+## ➕ Adding a New Game to the Hub
+
+The platform architecture is designed to make adding future games effortless:
+
+1. **Create the Game Feature**:
+   - Create your game feature directory under `src/app/features/<game-name>/` (e.g., `word-search` or `minesweeper`).
+   - Implement your game page component (e.g. `WordSearchPageComponent`).
+   - Include a back navigation link to `/` in your game header for consistent hub navigation.
+
+2. **Register the Route in `src/app/app.routes.ts`**:
+   ```typescript
+   {
+     path: 'my-game',
+     component: MyGamePageComponent,
+     title: 'My Game — Puzzle Hub'
+   }
+   ```
+
+3. **Register Metadata in `GameRegistryService` (`src/app/core/services/game-registry.service.ts`)**:
+   ```typescript
+   {
+     id: 'my-game',
+     title: 'My Game',
+     description: 'Short description of your game and its rules.',
+     route: '/my-game',
+     icon: '🧩',
+     badge: 'New',
+     category: 'Logic',
+     difficultyLevels: ['Easy', 'Medium', 'Hard'],
+     isAvailable: true
+   }
+   ```
+   The game will automatically render on the Home landing page as a responsive card with its badge, icon, description, and direct "Play Now" action.
+
