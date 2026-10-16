@@ -39,7 +39,8 @@ import { SudokuGameService } from '../../../../core/services/sudoku-game.service
           type="button"
           (click)="gameService.toggleNotesMode()"
           [disabled]="gameService.isPaused() || gameService.isCompleted()"
-          aria-label="Toggle notes mode"
+          aria-label="Notes mode"
+          [attr.aria-pressed]="gameService.notesMode()"
           class="relative flex flex-col items-center justify-center py-2.5 px-1 rounded-xl border shadow-sm active:scale-95 transition disabled:opacity-40"
           [ngClass]="{
             'bg-blue-600 border-blue-600 text-white shadow-blue-500/20': gameService.notesMode(),
