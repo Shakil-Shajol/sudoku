@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { SudokuPageComponent } from './sudoku-page.component';
 import { SudokuGameService } from '../../../../core/services/sudoku-game.service';
 
@@ -10,7 +11,8 @@ describe('SudokuPageComponent', () => {
   beforeEach(async () => {
     localStorage.clear();
     await TestBed.configureTestingModule({
-      imports: [SudokuPageComponent]
+      imports: [SudokuPageComponent],
+      providers: [provideRouter([])]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SudokuPageComponent);

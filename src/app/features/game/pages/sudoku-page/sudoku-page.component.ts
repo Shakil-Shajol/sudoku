@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { SudokuGameService } from '../../../../core/services/sudoku-game.service';
 import { SudokuBoardComponent } from '../../components/sudoku-board/sudoku-board.component';
 import { NumberPadComponent } from '../../components/number-pad/number-pad.component';
@@ -11,6 +12,7 @@ import { GameCompleteDialogComponent } from '../../components/game-complete-dial
   selector: 'app-sudoku-page',
   imports: [
     CommonModule,
+    RouterLink,
     SudokuBoardComponent,
     NumberPadComponent,
     GameToolbarComponent,
@@ -24,6 +26,17 @@ import { GameCompleteDialogComponent } from '../../components/game-complete-dial
         <!-- Brand Header & Top Actions -->
         <header class="flex items-center justify-between mb-4 px-2">
           <div class="flex items-center gap-2.5">
+            <!-- Back to Home Link -->
+            <a
+              routerLink="/"
+              aria-label="Back to Games Hub"
+              title="Return to Games Hub"
+              class="w-9 h-9 flex items-center justify-center text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm hover:shadow transition-all active:scale-95"
+            >
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+            </a>
             <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-md shadow-blue-500/20">
               9
             </div>
