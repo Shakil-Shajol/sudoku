@@ -53,13 +53,17 @@ import { Difficulty } from '../../../../core/models/sudoku.model';
           </span>
           <div class="flex items-center justify-between">
             <span class="font-mono text-base font-bold" [ngClass]="gameService.mistakes() > 0 ? 'text-red-600 dark:text-red-400' : 'text-slate-900 dark:text-white'">
-              {{ gameService.mistakes() }} <span class="text-slate-400 font-normal text-xs">/ 3</span>
+              {{ gameService.mistakes() }}
             </span>
-            <div class="flex gap-1">
-              <span class="w-2.5 h-2.5 rounded-full" [ngClass]="gameService.mistakes() >= 1 ? 'bg-red-500' : 'bg-slate-200 dark:bg-slate-700'"></span>
-              <span class="w-2.5 h-2.5 rounded-full" [ngClass]="gameService.mistakes() >= 2 ? 'bg-red-500' : 'bg-slate-200 dark:bg-slate-700'"></span>
-              <span class="w-2.5 h-2.5 rounded-full" [ngClass]="gameService.mistakes() >= 3 ? 'bg-red-500' : 'bg-slate-200 dark:bg-slate-700'"></span>
-            </div>
+            @if (gameService.mistakes() > 0) {
+              <span class="px-2 py-0.5 rounded-full bg-red-500/10 text-red-600 dark:text-red-400 font-mono text-[10px] font-bold">
+                {{ gameService.mistakes() === 1 ? '1 error' : gameService.mistakes() + ' errors' }}
+              </span>
+            } @else {
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono text-[10px] font-bold">
+                Clean
+              </span>
+            }
           </div>
         </div>
       </div>

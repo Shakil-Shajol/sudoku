@@ -45,6 +45,12 @@ import { GameCategory } from '../../../../core/models/game-registry.model';
               >
                 Sudoku (Active)
               </a>
+              <a
+                routerLink="/sudoku/rules"
+                class="px-3.5 py-1.5 text-xs font-medium rounded-lg text-slate-600 dark:text-[#c7c4d8] hover:bg-slate-100 dark:hover:bg-[#222a3d] hover:text-slate-900 dark:hover:text-[#dae2fd] transition-all"
+              >
+                Rules &amp; Guide
+              </a>
             </nav>
           </div>
 
@@ -327,7 +333,14 @@ import { GameCategory } from '../../../../core/models/game-registry.model';
               <span class="font-mono text-[11px] text-slate-700 dark:text-white">Zen Grid Synced</span>
             </div>
           </div>
-          <div class="flex items-center gap-6 font-mono text-[11px]">
+          <div class="flex items-center gap-4 sm:gap-6 font-mono text-[11px]">
+            <a
+              routerLink="/sudoku/rules"
+              class="hover:text-indigo-600 dark:hover:text-white transition-colors flex items-center gap-1 font-semibold"
+            >
+              <span class="material-symbols-outlined text-[14px]">menu_book</span>
+              <span>Sudoku Rules</span>
+            </a>
             <div class="flex items-center gap-1.5">
               <span class="px-1.5 py-0.5 bg-slate-200 dark:bg-[#222a3d] rounded text-slate-800 dark:text-white font-bold">?</span>
               <span>Shortcuts</span>

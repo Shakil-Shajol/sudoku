@@ -51,6 +51,12 @@ import { GameCompleteDialogComponent } from '../../components/game-complete-dial
               <span class="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 text-white shadow-sm">
                 Sudoku (Playing)
               </span>
+              <a
+                routerLink="/sudoku/rules"
+                class="px-3.5 py-1.5 text-xs font-medium rounded-lg text-slate-600 dark:text-[#c7c4d8] hover:bg-slate-100 dark:hover:bg-[#222a3d] hover:text-slate-900 dark:hover:text-[#dae2fd] transition-all"
+              >
+                Rules &amp; Guide
+              </a>
             </nav>
           </div>
 
@@ -150,11 +156,20 @@ import { GameCompleteDialogComponent } from '../../components/game-complete-dial
               <option value="expert">expert</option>
             </select>
 
-            <!-- Right: Zen Focus Toggles -->
-            <div class="flex items-center gap-3 self-end md:self-auto">
+            <!-- Right: Zen Focus Toggles & Rules Link -->
+            <div class="flex items-center gap-2 self-end md:self-auto">
+              <a
+                routerLink="/sudoku/rules"
+                title="View Sudoku Guidelines & Rules"
+                class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#171f33] hover:bg-slate-200 dark:hover:bg-[#222a3d] text-slate-700 dark:text-[#c7c4d8] hover:text-indigo-600 dark:hover:text-white transition-all text-xs font-mono font-medium"
+              >
+                <span class="material-symbols-outlined text-[16px] text-indigo-500">menu_book</span>
+                <span>Rules</span>
+              </a>
+
               <div class="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-100 dark:bg-[#171f33] text-sky-600 dark:text-[#7bd0ff] font-mono text-xs">
                 <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
-                <span>Cognitive Flow</span>
+                <span class="hidden sm:inline">Cognitive Flow</span>
               </div>
               <button
                 type="button"
@@ -180,19 +195,26 @@ import { GameCompleteDialogComponent } from '../../components/game-complete-dial
           <app-game-stats />
 
           <!-- Main Central Arena: Asymmetric Grid Layout from Reference -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            <!-- Left / Center: Sudoku Matrix Canvas (7 cols on lg) -->
-            <div class="lg:col-span-7 flex flex-col items-center">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-start">
+            <!-- Left / Center: Sudoku Matrix Canvas & Mobile Controls (7 cols on lg) -->
+            <div class="lg:col-span-7 flex flex-col items-center gap-3 w-full">
               <app-sudoku-board />
+
+              <!-- Immediate mobile placement of numbers directly under grid (matching reference sudoku.jpeg) -->
+              <div class="w-full max-w-[560px] block lg:hidden">
+                <app-number-pad />
+              </div>
             </div>
 
-            <!-- Right Side: Control, Interactive Pad & Action Center (5 cols on lg) -->
-            <div class="lg:col-span-5 flex flex-col gap-4">
+            <!-- Right Side: Desktop Control, Interactive Pad & Action Center (5 cols on lg) -->
+            <div class="lg:col-span-5 flex flex-col gap-4 w-full">
               <!-- Tactile Toolkit Ribbon (Undo, Erase, Notes, Hint, Verify, Clean) -->
               <app-game-toolbar />
 
-              <!-- Tactile Numpad Matrix (3x3 Layout) -->
-              <app-number-pad />
+              <!-- Desktop Tactile Numpad Matrix (Hidden on mobile where it is placed directly under grid) -->
+              <div class="hidden lg:block">
+                <app-number-pad />
+              </div>
 
               <!-- Session Secondary Actions: Restart, New Game, Shortcuts -->
               <div class="flex items-center gap-2">
@@ -239,13 +261,25 @@ import { GameCompleteDialogComponent } from '../../components/game-complete-dial
                     <span class="font-bold text-slate-900 dark:text-white capitalize">{{ gameService.difficulty() }}</span>
                   </div>
                   <div class="text-center">
-                    <span class="text-[10px] text-slate-500 dark:text-[#c7c4d8] block">Mistakes Allowed</span>
-                    <span class="font-bold text-emerald-500 dark:text-[#4edea3]">{{ 3 - gameService.mistakes() }} left</span>
+                    <span class="text-[10px] text-slate-500 dark:text-[#c7c4d8] block">Mistakes</span>
+                    <span class="font-bold text-slate-900 dark:text-white" [ngClass]="{ 'text-red-500 dark:text-red-400': gameService.mistakes() > 0 }">{{ gameService.mistakes() }}</span>
                   </div>
                   <div class="text-right">
                     <span class="text-[10px] text-slate-500 dark:text-[#c7c4d8] block">Focus State</span>
                     <span class="font-bold text-sky-500 dark:text-[#7bd0ff]">Active</span>
                   </div>
+                </div>
+
+                <!-- Quick link to full rules & guideline -->
+                <div class="pt-2 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 font-mono text-xs">
+                  <span class="text-slate-500 dark:text-[#c7c4d8] text-[11px]">Unsure of a move?</span>
+                  <a
+                    routerLink="/sudoku/rules"
+                    class="text-indigo-600 dark:text-[#7bd0ff] hover:underline font-semibold flex items-center gap-1"
+                  >
+                    <span>Read Guidelines &amp; Tactics</span>
+                    <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -309,7 +343,14 @@ import { GameCompleteDialogComponent } from '../../components/game-complete-dial
               <span class="font-mono text-[11px] text-slate-700 dark:text-white">Zen Grid Synced</span>
             </div>
           </div>
-          <div class="flex items-center gap-6 font-mono text-[11px]">
+          <div class="flex items-center gap-4 sm:gap-6 font-mono text-[11px]">
+            <a
+              routerLink="/sudoku/rules"
+              class="hover:text-indigo-600 dark:hover:text-white transition-colors flex items-center gap-1 font-semibold"
+            >
+              <span class="material-symbols-outlined text-[14px]">menu_book</span>
+              <span>Rules</span>
+            </a>
             <div class="flex items-center gap-1.5">
               <span class="px-1.5 py-0.5 bg-slate-200 dark:bg-[#222a3d] rounded text-slate-800 dark:text-white font-bold">?</span>
               <span>Shortcuts</span>
